@@ -68,6 +68,8 @@ def create_access_token(username: str, user_id: int, expires_delta: timedelta):
 async def create_user(db: db_dependency,
                         create_user_request: CreateUserRequest
                       ):
+
+
     if create_user_request.password in (create_user_request.username,
                                         create_user_request.email):
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,
